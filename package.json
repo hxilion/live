@@ -21,7 +21,7 @@
     "core-js": "^3.36.1",
     "pinia": "^2.1.7",
     "trtc-electron-plugin-xmagic": "^0.0.16",
-    "trtc-electron-sdk": "11.8.603-alpha.1",
+    "trtc-electron-sdk": "^12.2.701",
     "vue": "^3.4.21",
     "vue-i18n": "^9.10.2",
     "vue-router": "^4.3.0"

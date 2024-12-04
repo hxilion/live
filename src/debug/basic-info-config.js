@@ -2,7 +2,7 @@
  * @Description: Basic information configuration for TUILiveKit applications
  */
 
-import LibGenerateTestUserSig from './lib-generate-test-usersig-es.min';
+import LibGenerateTestUserSig from "./lib-generate-test-usersig-es.min";
 
 /**
  * Tencent Cloud SDKAppID, which should be replaced with user's SDKAppID.
@@ -11,7 +11,7 @@ import LibGenerateTestUserSig from './lib-generate-test-usersig-es.min';
  * It is a unique identifier used by Tencent Cloud to identify users.
  */
 
-export const SDKAppID = 0;
+export const SDKAppID = 20014692;
 
 /**
  * Encryption key for calculating signature, which can be obtained in the following steps:
@@ -27,7 +27,8 @@ export const SDKAppID = 0;
  * unauthorized traffic use caused by the leakage of encryption key.
  * Document: https://intl.cloud.tencent.com/document/product/647/35166#Server
  */
-export const SDKSecretKey = '';
+export const SDKSecretKey =
+  "95d93be40bfcd84683ee7787061d878dca5e4b34178daa0e62dee239dc370d4f";
 
 /**
  * Signature expiration time, which should not be too short
@@ -43,17 +44,23 @@ export const userInfo = {
   // User ID
   userId: `user_${Math.ceil(Math.random() * 100000)}`,
   // User Name
-  userName: 'myName',
+  userName: "myName",
   // User Avatar
-  avatarUrl: './avatar.png',
+  avatarUrl: "./avatar.png",
 };
 
 export function getBasicInfo() {
-  if (SDKAppID === Number(0) || SDKSecretKey === String('')) {
-    alert("Please configure your \"SDKAppID\" and \"SDKSecretKey\" in src/debug/basic-info-config.js");
+  if (SDKAppID === Number(0) || SDKSecretKey === String("")) {
+    alert(
+      'Please configure your "SDKAppID" and "SDKSecretKey" in src/debug/basic-info-config.js'
+    );
     return;
   }
-  const generator = new LibGenerateTestUserSig(SDKAppID, SDKSecretKey, EXPIRETIME);
+  const generator = new LibGenerateTestUserSig(
+    SDKAppID,
+    SDKSecretKey,
+    EXPIRETIME
+  );
   const userSig = generator.genTestUserSig(userInfo.userId);
   const { userId, userName, avatarUrl } = userInfo;
   return {
